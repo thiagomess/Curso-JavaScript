@@ -4,32 +4,55 @@
   titulo.textContent = "Aparecida Nutricionista";
 
 
-  var paciente = document.querySelector("#primeiro-paciente");
-  var tdPeso = paciente.querySelector(".info-peso");
-  var peso = tdPeso.textContent;
+  var pacientes = document.querySelectorAll(".paciente");
 
-  var tdAltura =paciente.querySelector(".info-altura");
-  var altura = tdAltura.textContent;
+  for(var i=0; i<pacientes.length; i++){
 
-  var tdImc = paciente.querySelector(".info-imc");
+    var paciente = pacientes[i];
 
-  var pesoEhValido = true;
-  var alturaEhValida = true;
+    var tdPeso = paciente.querySelector(".info-peso");
+    var peso = tdPeso.textContent;
 
-  if(peso < 20 || peso >= 1000){
-    console.log("peso inválido");
-    pesoEhValido = false;
-    tdImc.textContent = "Peso inválido";
+    var tdAltura =paciente.querySelector(".info-altura");
+    var altura = tdAltura.textContent;
+
+    var tdImc = paciente.querySelector(".info-imc");
+
+    var pesoEhValido = true;
+    var alturaEhValida = true;
+
+    if(peso < 20 || peso >= 1000){
+      console.log("peso inválido");
+      pesoEhValido = false;
+      tdImc.textContent = "Peso inválido";
+      paciente.classList.add("paciente-invalido");
+
+    }
+    if(altura <= 0 || altura >= 2.50){
+        console.log("altura inválida");
+        alturaEhValida = false;
+        tdImc.textContent = "Altura inválida";
+        paciente.classList.add("paciente-invalido");
+    }
+
+    if (pesoEhValido  && alturaEhValida) {
+      var imc = peso / (altura * altura);
+      tdImc.textContent = imc.toFixed(2);
 
   }
-  if(altura <= 0 || altura >= 2.50){
-      console.log("altura inválida");
-      alturaEhValida = false;
-      tdImc.textContent = "Altura inválida";
-  }
 
-  if (pesoEhValido  && alturaEhValida) {
-    var imc = peso / (altura * altura);
-    tdImc.textContent = imc;
+}
+titulo.addEventListener("click", mostraMensagem);
+function mostraMensagem(){
+  console.log("Olá, eu fui clicado!");
+}
 
-  }
+// Função anonima.
+// titulo.addEventListener("click",function(){
+//   console.log("Olá, eu fui clicado!");
+// });
+
+var botaoAdicionar = document.querySelector('#adicionar-paciente');
+botaoAdicionar.addEventListener('click', function(){
+  alert("cliquei");
+});
