@@ -1,6 +1,8 @@
 # Curso-JavaScript
 
-Certificado:
+Certificado Alura:
 
 JavaScript: Programando na linguagem da web
-https://cursos.alura.com.br/user/thiagogomes19/course/javascript-programando-na-linguagem-web/certificate
+
+https://cursos.alura.com.br/certificate/8edbc49d-9afd-430e-8953-83b5312010e6
+
